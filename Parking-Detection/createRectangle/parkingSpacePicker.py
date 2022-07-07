@@ -2,7 +2,7 @@ import cv2
 import pickle
 import os
 
-PATH = 'D:\PYTHON PROJECT\PARKING DETECTION\createRectangle\data'
+PATH = os.path.dirname(__file__)
 FILE_NAME = 'car_park_pos'
 
 
@@ -15,7 +15,7 @@ class ParkingSpacePicker:
 
     def load_park_pos(self):
         try:
-            with open(os.path.join(PATH, FILE_NAME), 'rb') as file_obj:
+            with open(os.path.join(PATH, "data", FILE_NAME), 'rb') as file_obj:
                 self.posList = pickle.load(file_obj)
         except FileNotFoundError:
             self.posList = []
